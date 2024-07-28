@@ -1,0 +1,8 @@
+celery==5.2.2
+celery-redbeat==2.1.1
+flask==2.3.3
+flask-pyoidc==3.14.2
+Flask-sqlalchemy==3.0.5
+Flask-migrate==4.0.4
+flask-marshmallow==0.15.0
+pillow

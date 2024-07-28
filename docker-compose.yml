@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./docker/backend/Dockerfile
+    env_file:
+      - ./environments/backend/backend.env
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    command: |
+        sh -c "python run.py "
+
+  db:
+    image: timescale/timescaledb:latest-pg13
+    restart: always
+    env_file:
+      - ./environments/db/db.env
+    volumes:
+      - local-db-data:/var/lib/postgresql/data
+
+volumes:
+  local-db-data:
